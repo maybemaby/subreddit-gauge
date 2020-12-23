@@ -1,1 +1,3 @@
 secrets.py
+*.ipynb
+__pycache__

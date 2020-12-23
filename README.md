@@ -2,6 +2,6 @@
 
 Goal: Scrape statistics about subreddits and their activity over time. Use the info to visualize activity in matplotlib.
 
-- [ ] Pull daily information from subreddits about active users, subscribers, posts, comments, upvotes, and more.
+- [x] Pull daily information from subreddits about active users, subscribers, posts, comments, upvotes, comment:score ratio and more.
 - [ ] Track info in either CSV,xsls, SQL, pandas, etc.
-- [ ] Plot data relational to time, comments, etc.
+- [ ] Plot active user count vs time, posts per hour vs active user count, number of comments vs score, etc.

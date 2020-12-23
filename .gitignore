@@ -2,3 +2,4 @@ secrets.py
 credentials.py
 *.ipynb
 __pycache__
+*.csv

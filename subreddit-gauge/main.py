@@ -7,6 +7,9 @@ from grab import get_active, get_subscribers, get_posts
 import datetime, time
 import pandas as pd
 import numpy as np
+from pathlib import Path
+
+path = r"C:/Users/BrandonMa/Python projects/subreddit-gauge/"
 
 
 def main():
@@ -46,4 +49,11 @@ def main():
     return df, df2
 
 
-print(main())
+subreddit_data = main()
+for i, df in enumerate(subreddit_data):
+    filename = "learnpythondata" + str(i) + ".csv"
+    existing_file = Path(path + filename)
+    if existing_file.is_file():
+        df.to_csv(filename, mode="a", header=False)
+    else:
+        df.to_csv(path_or_buf=path + filename)

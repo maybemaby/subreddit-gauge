@@ -1,3 +1,4 @@
 secrets.py
+credentials.py
 *.ipynb
 __pycache__

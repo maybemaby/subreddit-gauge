@@ -42,26 +42,29 @@ def get_active(subreddit_):
     int: Currently online user count.
     """
     subreddit = reddit.subreddit(subreddit_)
+    subreddit._fetch()
     return subreddit.active_user_count
 
 
 def get_posts(subreddit_):
-    """Gets amount of comments posted within last hour.
-
+    """Gets amount of posts within last hour, upvotes, and number of comments.
     Inputs
     -----
     str: Desired subreddit name.
 
     Returns
     ------
-    int: len(comments)
+    dict: {'submission(id)': ['score','len(comments)']}
     """
     subreddit = reddit.subreddit(subreddit_)
-    posts = set()
+    posts = dict()
     for submission in subreddit.top(time_filter="hour", limit=None):
-        posts.add(submission)
-    return len(posts)
+        score = submission.score
+        posts[submission.id] = [score, len(submission.comments.list())]
+    return posts
 
 
-print(get_posts("learnpython"))
+data = get_posts("learnpython")
+print(data)
+print(len(data))
 print(get_active("learnpython"))

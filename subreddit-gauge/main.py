@@ -4,6 +4,7 @@
 # tracked over csv and eventually plotted.
 
 from grab import get_active, get_subscribers, get_posts
+from plots import plot_activity, plot_users_vs_tod
 import datetime, time
 import pandas as pd
 import numpy as np
@@ -12,12 +13,12 @@ from pathlib import Path
 path = r"C:/Users/BrandonMa/Python projects/subreddit-gauge/"
 
 
-def main():
+def main(subreddit):
     timeindex = []
     data = []
     postdata = {}
     for _ in range(1):
-        hourly_posts = get_posts("learnpython")
+        hourly_posts = get_posts(subreddit)
         upvotes = 0
         comments = 0
         for v in hourly_posts.values():
@@ -27,8 +28,8 @@ def main():
         timeindex.append(t.strftime("%c"))
         data.append(
             [
-                get_subscribers("learnpython"),
-                get_active("learnpython"),
+                get_subscribers(subreddit),
+                get_active(subreddit),
                 len(hourly_posts),
                 upvotes,
                 comments,
@@ -59,9 +60,10 @@ def main():
 
 
 if __name__ == "__main__":
-    subreddit_data = main()
+    subreddit = "learnpython"
+    subreddit_data = main(subreddit)
     for i, df in enumerate(subreddit_data):
-        filename = "learnpythondata" + str(i) + ".csv"
+        filename = subreddit + "data" + str(i) + ".csv"
         existing_file = Path(path + filename)
         if existing_file.is_file():
             print(f"Adding to {filename}...")
@@ -69,3 +71,6 @@ if __name__ == "__main__":
         else:
             df.to_csv(path_or_buf=path + filename)
             print(f"Creating {filename}...")
+
+    plot_activity("learnpython", on=True)
+    plot_users_vs_tod("learnpython", on=True)

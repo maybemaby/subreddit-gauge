@@ -4,6 +4,7 @@
 import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
+import numpy as np
 
 path = r"C:/Users/BrandonMa/Python projects/subreddit-gauge/"
 subreddit = "learnpython"
@@ -67,11 +68,13 @@ def plot_users_vs_tod(subreddit, on=True):
         df = pd.read_csv(path + subreddit + "data0.csv", usecols=[0, 2])
         df.columns = ["datetime", "Active users"]
         df["datetime"] = pd.to_datetime(df["datetime"])
-        fig, axs = plt.subplots(figsize=(12, 4))
+        fig, axs = plt.subplots(figsize=(12, 8))
         df.groupby(df["datetime"].dt.hour)["Active users"].mean().plot(
             kind="bar", rot=0, ax=axs
         )
         plt.xlabel("Time of day:Hour")
         plt.ylabel("Active Users")
+        axs.set_yticks(np.arange(0, 1601, 100))
+        plt.show()
     elif on == False:
         return

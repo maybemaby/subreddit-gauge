@@ -4,7 +4,7 @@
 # tracked over csv and eventually plotted.
 
 from grab import get_active, get_subscribers, get_posts
-from plots import plot_activity, plot_users_vs_tod
+from plots import plot_activity, plot_users_vs_tod, plot_users_vs_act
 import datetime, time
 import pandas as pd
 import numpy as np
@@ -73,4 +73,5 @@ if __name__ == "__main__":
             print(f"Creating {filename}...")
 
     plot_activity("learnpython", on=True)
+    plot_users_vs_act("learnpython", on=True)
     plot_users_vs_tod("learnpython", on=True)

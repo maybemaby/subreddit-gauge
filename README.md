@@ -6,3 +6,9 @@ Goal: Scrape statistics about subreddits and their activity over time. Use the i
 - [x] Track info in either CSV,xsls, SQL, pandas, etc.
 - [ ] Plot active user count vs time, posts per hour vs active user count, number of comments vs score, etc.
 - [ ] Include functionality for making plots and dataframes of multiple subreddits simultaneously.
+
+## Example Graphs
+
+![Subreddit activity](https://github.com/maybemaby/subreddit-gauge/images/activitygraph.png)
+
+![Subreddit usercount](https://github.com/maybemaby/subreddit-gauge/images/usercount_graph.png)

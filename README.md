@@ -9,6 +9,6 @@ Goal: Scrape statistics about subreddits and their activity over time. Use the i
 
 ## Example Graphs
 
-![Subreddit activity](https://raw.githubusercontent.com/maybemaby/subreddit-gauge/images/activitygraph.png)
+![Subreddit activity](https://raw.githubusercontent.com/maybemaby/subreddit-gauge/master/images/activitygraph.png)
 
-![Subreddit usercount](https://raw.githubusercontent.com/maybemaby/subreddit-gauge/images/usercount_graph.png)
+![Subreddit usercount](https://raw.githubusercontent.com/maybemaby/subreddit-gauge/master/images/usercount_graph.png)

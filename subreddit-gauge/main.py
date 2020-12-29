@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-path = r"C:/Users/BrandonMa/Python projects/subreddit-gauge/"
+path = Path.home() / "Python projects/subreddit-gauge/"
 
 # Run the file to collect the data then print the graphs.
 def main(subreddit):
@@ -72,6 +72,6 @@ if __name__ == "__main__":
             df.to_csv(path_or_buf=path + filename)
             print(f"Creating {filename}...")
 
-    plot_activity("learnpython", on=True)
-    plot_users_vs_act("learnpython", on=True)
-    plot_users_vs_tod("learnpython", on=True)
+    plot_activity("learnpython", on=False)
+    plot_users_vs_act("learnpython", on=False)
+    plot_users_vs_tod("learnpython", on=False)

@@ -6,7 +6,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-path = r"C:/Users/BrandonMa/Python projects/subreddit-gauge/"
+path = Path.home() / "Python projects/subreddit-gauge/"
 subreddit = "learnpython"
 
 

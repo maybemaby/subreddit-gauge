@@ -6,7 +6,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-path = Path.home() / "Python projects/subreddit-gauge/"
+path = Path.home() / "Python projects" / "subreddit-gauge"
 subreddit = "learnpython"
 
 
@@ -23,7 +23,7 @@ def plot_activity(subreddit, on=True):
     4 line plots
     """
     if on == True:
-        df = pd.read_csv(path + subreddit + "data0.csv", index_col=0)
+        df = pd.read_csv(path / subreddit / "data0.csv", index_col=0)
         df.plot(subplots=True, figsize=(8, 8), xlabel="Time")
         plt.show()
     elif on == False:
@@ -45,7 +45,7 @@ def uva_df(subreddit, on=True):
     if on == True:
         # Only use the desired data for our dataframe and don't use the time index
         df = pd.read_csv(
-            path + subreddit + "data0.csv",
+            path / subreddit / "data0.csv",
             usecols=["Active users", "Posts/hour", "Comments/hour"],
             index_col=False,
         )
@@ -113,7 +113,7 @@ def plot_users_vs_tod(subreddit, on=True):
     bar chart plot
     """
     if on == True:
-        df = pd.read_csv(path + subreddit + "data0.csv", usecols=[0, 2])
+        df = pd.read_csv(path / subreddit / "data0.csv", usecols=[0, 2])
         df.columns = ["datetime", "Active users"]
         df["datetime"] = pd.to_datetime(df["datetime"])
         fig, axs = plt.subplots(figsize=(12, 8))

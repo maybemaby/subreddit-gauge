@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-path = Path.home() / "Python projects/subreddit-gauge/"
+path = Path.home() / "Python projects" / "subreddit-gauge"
 
 # Run the file to collect the data then print the graphs.
 def main(subreddit):
@@ -63,12 +63,12 @@ if __name__ == "__main__":
     subreddit_data = main(subreddit)
     for i, df in enumerate(subreddit_data):
         filename = subreddit + "data" + str(i) + ".csv"
-        existing_file = Path(path + filename)
+        existing_file = Path(path / filename)
         if existing_file.is_file():
             print(f"Adding to {filename}...")
-            df.to_csv(path + filename, mode="a", header=False)
+            df.to_csv(path / filename, mode="a", header=False)
         else:
-            df.to_csv(path_or_buf=path + filename)
+            df.to_csv(path_or_buf=path / filename)
             print(f"Creating {filename}...")
 
     plot_activity("learnpython", on=False)

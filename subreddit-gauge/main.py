@@ -5,7 +5,7 @@
 
 from grab import get_active, get_subscribers, get_posts
 from plots import plot_activity, plot_users_vs_tod, plot_users_vs_act
-import datetime, time
+import datetime
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -39,7 +39,6 @@ def main(subreddit):
             postdata = hourly_posts
         else:
             postdata = postdata.update(hourly_posts)
-        # time.sleep(10)
     array1 = np.array(data)
     dti = pd.DatetimeIndex(timeindex)
     df = pd.DataFrame(

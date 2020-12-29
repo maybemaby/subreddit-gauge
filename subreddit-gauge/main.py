@@ -12,7 +12,7 @@ from pathlib import Path
 
 path = r"C:/Users/BrandonMa/Python projects/subreddit-gauge/"
 
-
+# Run the file to collect the data then print the graphs.
 def main(subreddit):
     timeindex = []
     data = []

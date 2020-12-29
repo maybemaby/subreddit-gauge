@@ -2,7 +2,7 @@
 # Uses praw to pull data about subreddits.
 
 import praw
-from credentials import (
+from credentials import (  # create your own credentials file
     client_id,
     client_secret,
     reddit_password,
